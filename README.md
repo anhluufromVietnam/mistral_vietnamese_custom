@@ -35,7 +35,7 @@ This project provides a complete setup for benchmarking, plotting, and chatting 
 
 5. **Clone this repository**  
    ```bash
-   git clone [https://github.com/your-username/llama-benchmark-gpu.git](https://github.com/anhluufromVietnam/mistral_vietnamese_custom.git)
+   git clone [https://github.com/anhluufromVietnam/mistral_vietnamese_custom.git]
    cd mistral_vietnamese_custom
 Install dependencies
 
