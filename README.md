@@ -243,13 +243,13 @@ We use the **[Vistral-7B-Chat](https://huggingface.co/Vistral-7B-Chat-GGUF)** mo
 
 If you use this model in your work, please cite:
 
-```bibtex
+```bash
 @article{chien2023vistral,
   author = {Chien Van Nguyen, Thuat Nguyen, Quan Nguyen, Huy Huu Nguyen, Björn Plüster, Nam Pham, Huu Nguyen, Patrick Schramowski, Thien Huu Nguyen},
   title = {Vistral-7B-Chat - Towards a State-of-the-Art Large Language Model for Vietnamese},
   year = 2023,
-}```
-
+}
+```
 ---
 
 ### 🏁 Run the server
