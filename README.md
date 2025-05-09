@@ -91,6 +91,7 @@ python testgpu.py
 
 ## 📊 Benchmark Results Summary
 Based on the `benchmark_output.csv` data, here are average response times:
+### 🧠 Benchmark Results Summary for 16-bit floating point precision
 
 | Context Size | GPU Layers | Batch Size  | Avg Response Time (sec) |
 |--------------|------------|-------------|--------------------------|
@@ -100,8 +101,20 @@ Based on the `benchmark_output.csv` data, here are average response times:
 | 2048         | 32         | 256–1024    | ~15.2                    |
 | 4096–16384   | 28         | 512–1024    | ~12.2                    |
 | 32768        | >28        | Any         | ❌ Failed (VRAM exceeded) |
+### 🧠 Benchmark Results Summary for 4-bit Quantization
+| Context Size | GPU Layers | Batch Size  | Avg Response Time (sec) |
+|--------------|------------|-------------|--------------------------|
+| 2048         | 20         | 256–1024    | ~7.3                     |
+| 2048         | 24         | 256–1024    | ~5.7                     |
+| 2048         | 28         | 256–1024    | ~3.6                     |
+| 2048         | 32         | 256–1024    | ~2.0                     |
+| 4096         | 28         | 512–1024    | ~3.6                     |
+| 8192         | 32         | 256–1024    | ~2.0                     |
+| 16384        | 32         | 256–1024    | ~2.0                     |
+| 32768        | 32         | 256–1024    | ~2.0                     |
 
 ## ✅ Best Performance
+### for 16-bit floating point precision
 - **GPU Layers**: 28
 - **Batch**: 1024
 - **Ctx**: 2048 to 16384
@@ -110,6 +123,17 @@ Based on the `benchmark_output.csv` data, here are average response times:
 ## ⚠️ Limitations
 - At `ctx=32768`, models with 28+ GPU layers fail due to memory exhaustion (~75MB allocation failure).
 - Increase in GPU layers beyond 28 does not always yield better performance and may reduce VRAM headroom.
+
+## ✅ Best Performance
+### for 4-bit quantization (q4_1)
+GPU Layers: 32
+Batch: 256 to 1024
+Ctx: 2048 to 32768
+Delivers ~2.0 sec response time on average.
+
+## ⚠️ Limitations
+At ctx=32768, models with more than 28 GPU layers fail due to memory exhaustion.
+Response times may vary with lower GPU layers, indicating potential trade-offs in performance.
 
 ## 📌 File Structure
 ```bash
