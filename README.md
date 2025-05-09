@@ -1,12 +1,10 @@
-# mistral_vietnamese_custom
-
-# 🦙 llama_cpp GPU Benchmark & Chat Interface
+# mistral_vietnamese_custom with llama_cpp GPU Benchmark & Chat Interface
 
 This project provides a complete setup for benchmarking, plotting, and chatting with `llama_cpp` using GPU acceleration (CUDA-only, no cuDNN required). It includes:
 
 - `benchmark.py`: Benchmark llama models with different `ctx`, `gpu_layers`, and `batch` settings.
 - `plotmat.py`: Visualize the benchmark results.
-- `AI.py`: Interact with the model through a chat interface.
+- `AI.py`: Interact with the model through a terminal chat interface.
 - `testgpu.py`: Verify GPU status and VRAM usage.
 
 ---
@@ -37,8 +35,8 @@ This project provides a complete setup for benchmarking, plotting, and chatting 
 
 5. **Clone this repository**  
    ```bash
-   git clone https://github.com/your-username/llama-benchmark-gpu.git
-   cd llama-benchmark-gpu
+   git clone [https://github.com/your-username/llama-benchmark-gpu.git](https://github.com/anhluufromVietnam/mistral_vietnamese_custom.git)
+   cd mistral_vietnamese_custom
 Install dependencies
 
 bash
@@ -135,11 +133,30 @@ llama-benchmark-gpu/
 ├── testgpu.py          # GPU usage check
 ├── benchmark_output.csv
 ├── requirements.txt
+├── ggml-vistral-7B-chat-f16.gguf # artifacts model file
 └── README.md
-❤️ Credits
-llama_cpp
 
-CUDA Toolkit by NVIDIA
+## 🧠 Model Info & Credits
+
+We use the **[Vistral-7B-Chat](https://huggingface.co/Vistral-7B-Chat-GGUF)** model, a cutting-edge Vietnamese large language model based on the **Mistral architecture**.
+
+### 📌 Model Overview:
+- **Architecture**: Based on [Mistral-7B](https://arxiv.org/abs/2310.06825), adapted for Vietnamese.
+- **Training**: Fine-tuned with high-quality Vietnamese instructions and conversation data.
+- **Use Case**: Chatbot applications, question answering, summarization, and general Vietnamese NLP tasks.
+- **Format**: GGUF format for efficient inference with `llama.cpp` and `llama-cpp-python`.
+
+### 🧾 Citation
+
+If you use this model in your work, please cite:
+
+```bibtex
+@article{chien2023vistral,
+  author = {Chien Van Nguyen, Thuat Nguyen, Quan Nguyen, Huy Huu Nguyen, Björn Plüster, Nam Pham, Huu Nguyen, Patrick Schramowski, Thien Huu Nguyen},
+  title = {Vistral-7B-Chat - Towards a State-of-the-Art Large Language Model for Vietnamese},
+  year = 2023,
+}
+
 
 📞 Contact
 For questions or contributions, please open an issue or PR.
