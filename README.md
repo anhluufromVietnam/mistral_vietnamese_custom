@@ -281,7 +281,17 @@ Open [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser.
 
 ---
 
-### 📝 GitHub-Style Conclusion
+### 📝 Conclusion
+
+```bash
+llm = Llama(
+    model_path="ggml-vistral-7B-chat-q4_1.gguf",  # Adjust your path here
+    n_ctx=16384,
+    n_threads=64,
+    n_gpu_layers=128,
+    n_batch=512
+)
+```
 
 **Model Performance Summary**
 
@@ -307,8 +317,5 @@ Open [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser.
 
 
 📞 Contact
-<<<<<<< HEAD
 For questions or contributions, please open an issue or PR.
 =======
-For questions or contributions, please open an issue or PR.
->>>>>>> c83079374d6febec17fe1c6996d24199558036ad
