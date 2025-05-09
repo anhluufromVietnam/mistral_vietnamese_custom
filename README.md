@@ -248,9 +248,7 @@ If you use this model in your work, please cite:
   author = {Chien Van Nguyen, Thuat Nguyen, Quan Nguyen, Huy Huu Nguyen, Björn Plüster, Nam Pham, Huu Nguyen, Patrick Schramowski, Thien Huu Nguyen},
   title = {Vistral-7B-Chat - Towards a State-of-the-Art Large Language Model for Vietnamese},
   year = 2023,
-}
-
-Here's a summary and analysis of your **LLaMA generation response times**, presented in a table and a GitHub-style conclusion format.
+}```
 
 ---
 
