@@ -1,5 +1,7 @@
 # mistral_vietnamese_custom with llama_cpp GPU Benchmark & Chat Interface
 
+![Chat UI](https://github.com/anhluufromVietnam/mistral_vietnamese_custom/blob/main/chatUI.png?raw=true)
+
 This project provides a complete setup for benchmarking, plotting, and chatting with `llama_cpp` using GPU acceleration (CUDA-only, no cuDNN required). It includes:
 
 - `benchmark.py`: Benchmark llama models with different `ctx`, `gpu_layers`, and `batch` settings.
