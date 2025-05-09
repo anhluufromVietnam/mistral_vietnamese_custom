@@ -22,17 +22,16 @@ def guess_difficulty(text):
     else:
         return "Hard"
 
-# Optionally set this to show detailed GPU logs
+# Optional logging
 os.environ["LLAMA_CPP_LOG_LEVEL"] = "info"
 
-# Try to load model with GPU support
+# Load model
 n_gpu_layers = 20
 try:
     llm = Llama(
-        model_path="ggml-vistral-7B-chat-f16.gguf",
-        n_ctx=2048,
-        n_threads=8,
-        n_gpu_layers=20,
+        model_path="ggml-vistral-7B-chat-q4_1.gguf",
+        n_ctx=16384,
+        n_threads=64,
         n_gpu_layers=n_gpu_layers
     )
     print(f"✅ Model loaded with GPU acceleration (n_gpu_layers={n_gpu_layers}).")
@@ -41,7 +40,7 @@ except Exception as e:
     print("Reason:", e)
     llm = Llama(
         model_path="ggml-vistral-7B-chat-f16.gguf",
-        n_ctx=2048,
+        n_ctx=16384,
         n_threads=8
     )
     print("✅ Model loaded on CPU.")
@@ -59,11 +58,8 @@ while True:
 
     difficulty = guess_difficulty(user_input)
 
-    # Format input using Vistral template
     prompt = f"""[INST] <<SYS>>\n{system_prompt}\n<</SYS>>\n\n{user_input} [/INST]"""
-""
 
-    # Time the response
     start_time = time.time()
     output = llm(prompt, max_tokens=512, stop=["</s>"])
     end_time = time.time()
@@ -71,6 +67,5 @@ while True:
     response = output["choices"][0]["text"]
     duration = round(end_time - start_time, 2)
 
-    # Display result
     print(f"\n🤖 Trợ lí ({difficulty}): {response.strip()}")
     print(f"⏱️ Thời gian phản hồi: {duration} giây\n")

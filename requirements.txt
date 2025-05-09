@@ -1,0 +1,10 @@
+# Core LLM inference library (installed via .whl manually)
+# llama_cpp_python-0.3.4-cp39-cp39-win_amd64.whl
+
+# General dependencies
+numpy
+pandas
+matplotlib
+
+# Optional (for GPU status monitoring)
+pynvml

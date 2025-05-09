@@ -5,8 +5,8 @@ from llama_cpp import Llama
 
 # Benchmark configurations
 ctx_values = [16384, 32768]
-gpu_layer_values = [64, 128, 256, 1024]
-batch_values = [1024, 2048]
+gpu_layer_values = [32, 36, 40, 44, 48]
+batch_values = [512, 1024]
 
 # Model path
 model_path = "ggml-vistral-7B-chat-q4_1.gguf"

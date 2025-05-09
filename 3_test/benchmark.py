@@ -4,9 +4,9 @@ import csv
 from llama_cpp import Llama
 
 # Benchmark configurations
-ctx_values = [16384, 32768]
-gpu_layer_values = [64, 128, 256, 1024]
-batch_values = [1024, 2048]
+ctx_values = [2048, 4096, 8192, 16384, 32768]
+gpu_layer_values = [20, 24, 28, 32]
+batch_values = [256, 512, 1024]
 
 # Model path
 model_path = "ggml-vistral-7B-chat-q4_1.gguf"
