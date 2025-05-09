@@ -39,102 +39,90 @@ This project provides a complete setup for benchmarking, plotting, and chatting 
    cd mistral_vietnamese_custom
 Install dependencies
 
-bash
-Copy
-Edit
-pip install -r requirements.txt
-Install llama_cpp (CUDA-enabled)
-If you have the .whl file (llama_cpp_python-0.3.4-cp39-cp39-win_amd64.whl), install it directly:
+# Llama Benchmark GPU
 
-bash
-Copy
-Edit
-pip install llama_cpp_python-0.3.4-cp39-cp39-win_amd64.whl
-📁 Scripts & Usage
-🧪 benchmark.py
+## Installation
+
+1. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Install `llama_cpp` (CUDA-enabled):
+   If you have the `.whl` file (`llama_cpp_python-0.3.4-cp39-cp39-win_amd64.whl`), install it directly:
+   ```bash
+   pip install llama_cpp_python-0.3.4-cp39-cp39-win_amd64.whl
+   ```
+
+## 📁 Scripts & Usage
+
+### 🧪 `benchmark.py`
 Run benchmarks for multiple configuration combinations.
-
-bash
-Copy
-Edit
+```bash
 python benchmark.py
+```
 This will:
+- Run inference with various context sizes (`ctx`), GPU layers (`gpu_layers`), and batch sizes.
+- Save results to `benchmark_output.csv`.
+- Automatically release GPU memory between runs.
 
-Run inference with various context sizes (ctx), GPU layers (gpu_layers), and batch sizes
-
-Save results to benchmark_output.csv
-
-Automatically release GPU memory between runs
-
-📈 plotmat.py
+### 📈 `plotmat.py`
 Visualize benchmark results as graphs.
-
-bash
-Copy
-Edit
+```bash
 python plotmat.py
+```
 You’ll get:
+- One subplot per context size.
+- Lines showing how response time varies by batch and GPU layers.
+- Colorful, connected lines for easy comparison.
 
-One subplot per context size
-
-Lines showing how response time varies by batch and GPU layers
-
-Colorful, connected lines for easy comparison
-
-💬 AI.py
+### 💬 `AI.py`
 Simple chat interface with the model.
-
-bash
-Copy
-Edit
+```bash
 python AI.py
-You can enter your questions and get AI responses powered by the local llama_cpp backend.
+```
+You can enter your questions and get AI responses powered by the local `llama_cpp` backend.
 
-🧠 testgpu.py
+### 🧠 `testgpu.py`
 Check whether your GPU is active and which processes are using VRAM.
-
-bash
-Copy
-Edit
+```bash
 python testgpu.py
-📊 Benchmark Results Summary
-Based on the benchmark_output.csv data, here are average response times:
+```
 
-Context Size	GPU Layers	Batch Size	Avg Response Time (sec)
-2048	20	256–1024	~23.1
-2048	24	256–1024	~15.5
-2048	28	256–1024	~12.2
-2048	32	256–1024	~15.2
-4096–16384	28	512–1024	~12.2
-32768	>28	Any	❌ Failed (VRAM exceeded)
+## 📊 Benchmark Results Summary
+Based on the `benchmark_output.csv` data, here are average response times:
 
-✅ Best Performance
-GPU Layers = 28
+| Context Size | GPU Layers | Batch Size  | Avg Response Time (sec) |
+|--------------|------------|-------------|--------------------------|
+| 2048         | 20         | 256–1024    | ~23.1                    |
+| 2048         | 24         | 256–1024    | ~15.5                    |
+| 2048         | 28         | 256–1024    | ~12.2                    |
+| 2048         | 32         | 256–1024    | ~15.2                    |
+| 4096–16384   | 28         | 512–1024    | ~12.2                    |
+| 32768        | >28        | Any         | ❌ Failed (VRAM exceeded) |
 
-Batch = 1024
+## ✅ Best Performance
+- **GPU Layers**: 28
+- **Batch**: 1024
+- **Ctx**: 2048 to 16384
+- Delivers ~12.2 sec response time on average.
 
-Ctx = 2048 to 16384
+## ⚠️ Limitations
+- At `ctx=32768`, models with 28+ GPU layers fail due to memory exhaustion (~75MB allocation failure).
+- Increase in GPU layers beyond 28 does not always yield better performance and may reduce VRAM headroom.
 
-Delivers ~12.2 sec response time on average.
-
-⚠️ Limitations
-At ctx=32768, models with 28+ GPU layers fail due to memory exhaustion (~75MB allocation failure).
-
-Increase in GPU layers beyond 28 does not always yield better performance and may reduce VRAM headroom.
-
-📌 File Structure
-bash
-Copy
-Edit
+## 📌 File Structure
+```bash
 llama-benchmark-gpu/
-├── benchmark.py        # Run benchmark tests
-├── plotmat.py          # Plot results from benchmark_output.csv
-├── AI.py               # Interactive chat with LLM
-├── testgpu.py          # GPU usage check
+├── benchmark.py                      # Run benchmark tests
+├── plotmat.py                        # Plot results from benchmark_output.csv
+├── AI.py                             # Interactive chat with LLM
+├── testgpu.py                        # GPU usage check
 ├── benchmark_output.csv
 ├── requirements.txt
-├── ggml-vistral-7B-chat-f16.gguf # artifacts model file
+├── ggml-vistral-7B-chat-f16.gguf     # Artifacts model file
 └── README.md
+```
 
 ## 🧠 Model Info & Credits
 
