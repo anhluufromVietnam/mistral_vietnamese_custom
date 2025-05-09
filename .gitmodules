@@ -1,9 +1,3 @@
-<<<<<<< HEAD
 [submodule "Vistral-LLM"]
 	path = Vistral-LLM
 	url = https://github.com/hungnlp/vistral-7b-serving.git
-=======
-[submodule "Vistral-7B"]
-	path = Vistral-7B
-	url = https://huggingface.co/uonlp/Vistral-7B-Chat-gguf
->>>>>>> d2dcf2be5d95e7b7b00577d4c85fde66ec731602
