@@ -177,6 +177,51 @@ Response times may vary with lower GPU layers, indicating potential trade-offs i
 
 In summary, using 44 or 48 GPU layers with a batch size of 1024 provides the best performance balance for larger context sizes.
 
+Here's a GitHub-style **README markdown** with a compact summary table of your benchmark results using **Mistral 7B (4-bit quantized, 1 GPU)**. The table format follows your example, and includes key groupings based on context size, GPU layers, and batch size.
+
+---
+Here is your full **GitHub README-style** content including the conclusion and benchmark table, formatted for clean copy-paste into a `README.md` file:
+
+---
+
+# 🧠 Vistral 7B (4Q\_1) Inference Benchmark
+
+This document presents benchmark results evaluating **response time** across different context sizes, batch sizes, and GPU layer offloading levels using **Vistral 7B quantized to 4-bit (4Q\_1)**.
+
+---
+
+## 📊 Conclusion from the Graph
+
+### Response Time vs Context Size:
+
+* Response time is relatively **stable** across context sizes (16,384 vs 32,768).
+* Slightly **higher response time** occurs at lower context sizes for **smaller batch sizes** and **fewer GPU layers**.
+
+### Effect of Batch Size:
+
+* **Batch 2048** generally results in **slightly lower response times** than batch 1024.
+
+### Effect of GPU Layers:
+
+* Increasing GPU layers (e.g., 128 → 1024) **slightly reduces response time**, especially for **larger batches**.
+
+---
+
+## 📋 Benchmark Summary Table
+
+| Context Size | GPU Layers | Batch Size | Avg Response Time (sec)  |
+| ------------ | ---------- | ---------- | ------------------------ |
+| 16384        | 64         | 1024–2048  | \~1.71                   |
+| 16384        | 128        | 1024–2048  | \~1.67                   |
+| 16384        | 256        | 1024–2048  | \~1.67                   |
+| 16384        | 1024       | 2048       | \~1.66                   |
+| 32768        | 256        | 1024–2048  | \~1.69                   |
+| 32768        | 1024       | 1024–2048  | \~1.70                   |
+| 32768        | >1024      | Any        | ❌ Failed (VRAM exceeded) |
+
+---
+
+
 ## 📌 File Structure
 ```bash
 llama-benchmark-gpu/
