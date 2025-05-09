@@ -135,6 +135,48 @@ Delivers ~2.0 sec response time on average.
 At ctx=32768, models with more than 28 GPU layers fail due to memory exhaustion.
 Response times may vary with lower GPU layers, indicating potential trade-offs in performance.
 
+### Response Time Summary Table
+
+```markdown
+| Context Size | GPU Layers | Batch Size | Avg Response Time (sec) |
+|--------------|------------|------------|--------------------------|
+| 16384        | 32         | 512        | 2.09                     |
+| 16384        | 32         | 1024       | 2.02                     |
+| 16384        | 36         | 512        | 1.67                     |
+| 16384        | 36         | 1024       | 1.66                     |
+| 16384        | 40         | 512        | 1.66                     |
+| 16384        | 40         | 1024       | 1.66                     |
+| 16384        | 44         | 512        | 1.66                     |
+| 16384        | 44         | 1024       | 1.67                     |
+| 16384        | 48         | 512        | 1.67                     |
+| 16384        | 48         | 1024       | 1.67                     |
+| 32768        | 32         | 512        | 2.05                     |
+| 32768        | 32         | 1024       | 2.05                     |
+| 32768        | 36         | 512        | 1.69                     |
+| 32768        | 36         | 1024       | 1.69                     |
+| 32768        | 40         | 512        | 1.69                     |
+| 32768        | 40         | 1024       | 1.70                     |
+| 32768        | 44         | 512        | 1.69                     |
+| 32768        | 44         | 1024       | 1.69                     |
+| 32768        | 48         | 512        | 1.70                     |
+| 32768        | 48         | 1024       | 1.69                     |
+```
+
+### Conclusion
+
+## ✅ Optimal Performance
+- **GPU Layers**: 44 and 48
+- **Batch**: 1024
+- **Ctx**: 16384 to 32768
+- Delivers response times around **1.66 to 1.67 seconds**.
+
+## 📊 Key Insights
+- **Impact of Batch Size**: Increasing batch size to 1024 improves response times, particularly at higher GPU layers.
+- **Scalability**: As context size increases, response times stabilize, indicating efficient scalability for larger inputs.
+- **Layer Efficiency**: Performance gains plateau beyond 36 GPU layers, suggesting diminishing returns with higher layers.
+
+In summary, using 44 or 48 GPU layers with a batch size of 1024 provides the best performance balance for larger context sizes.
+
 ## 📌 File Structure
 ```bash
 llama-benchmark-gpu/
