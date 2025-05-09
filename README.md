@@ -137,7 +137,7 @@ Response times may vary with lower GPU layers, indicating potential trade-offs i
 
 ### Response Time Summary Table
 
-```markdown
+
 | Context Size | GPU Layers | Batch Size | Avg Response Time (sec) |
 |--------------|------------|------------|--------------------------|
 | 16384        | 32         | 512        | 2.09                     |
@@ -160,7 +160,7 @@ Response times may vary with lower GPU layers, indicating potential trade-offs i
 | 32768        | 44         | 1024       | 1.69                     |
 | 32768        | 48         | 512        | 1.70                     |
 | 32768        | 48         | 1024       | 1.69                     |
-```
+
 
 ### Conclusion
 
@@ -177,12 +177,6 @@ Response times may vary with lower GPU layers, indicating potential trade-offs i
 
 In summary, using 44 or 48 GPU layers with a batch size of 1024 provides the best performance balance for larger context sizes.
 
-Here's a GitHub-style **README markdown** with a compact summary table of your benchmark results using **Mistral 7B (4-bit quantized, 1 GPU)**. The table format follows your example, and includes key groupings based on context size, GPU layers, and batch size.
-
----
-Here is your full **GitHub README-style** content including the conclusion and benchmark table, formatted for clean copy-paste into a `README.md` file:
-
----
 
 # 🧠 Vistral 7B (4Q\_1) Inference Benchmark
 
