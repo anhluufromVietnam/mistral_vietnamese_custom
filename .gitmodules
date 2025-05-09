@@ -1,0 +1,3 @@
+[submodule "Vistral-LLM"]
+	path = Vistral-LLM
+	url = https://github.com/hungnlp/vistral-7b-serving.git
