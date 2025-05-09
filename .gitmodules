@@ -1,0 +1,3 @@
+[submodule "Vistral-7B"]
+	path = Vistral-7B
+	url = https://huggingface.co/uonlp/Vistral-7B-Chat-gguf
