@@ -250,6 +250,63 @@ If you use this model in your work, please cite:
   year = 2023,
 }
 
+Here's a summary and analysis of your **LLaMA generation response times**, presented in a table and a GitHub-style conclusion format.
+
+---
+
+### 🏁 Run the server
+
+```bash
+uvicorn main:app --reload
+```
+
+Open [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser.
+
+---
+
+### 📊 Performance Table for chat USING 
+
+|  # | Prompt Tokens | Gen Tokens | Total Tokens | Total Time (ms) | Time per Token (ms) |
+| -: | ------------- | ---------- | ------------ | --------------- | ------------------- |
+|  1 | 53            | 91         | 144          | 1818.66         | 12.63               |
+|  2 | 9             | 37         | 46           | 916.86          | 19.93               |
+|  3 | 11            | 68         | 79           | 1312.16         | 16.61               |
+|  4 | 26            | 511        | 537          | 9187.08         | 17.10               |
+|  5 | 28            | 223        | 251          | 4135.72         | 16.47               |
+|  6 | 481           | 511        | 992          | 9539.92         | 9.62                |
+|  7 | 435           | 511        | 946          | 9392.18         | 9.93                |
+|  8 | 15            | 22         | 37           | 736.83          | 19.91               |
+|  9 | 13            | 34         | 47           | 845.04          | 17.98               |
+| 10 | 16            | 49         | 65           | 1183.84         | 18.21               |
+| 11 | 20            | 55         | 75           | 1198.02         | 15.97               |
+| 12 | 16            | 51         | 67           | 1087.73         | 16.23               |
+
+---
+
+### 📝 GitHub-Style Conclusion
+
+**Model Performance Summary**
+
+* ✅ **Model Load Time:** Consistently around **324 ms**.
+* ✅ **Total Inference Time per Token:** Ranges between **9.6–19.9 ms/token** depending on prompt/gen length.
+* ✅ **Peak Efficiency:** Achieved on larger token batches (e.g. 992 tokens @ \~9.6 ms/token).
+* ⚠️ **Zero ms for eval/prompt times:** Likely indicates that internal timing is not recorded properly in `llama-cpp-python` under current backend or threading config.
+* ❗ **`GGML_ASSERT(...) failed` crash earlier:** A sign of tensor graph inconsistency, potentially caused by:
+
+  * Corrupted KV cache reuse
+  * Incorrect context reuse between threads
+  * Mismatch in graph setup
+
+**Recommendations**
+
+* ✅ Acceptable latency for local inference
+* 🧪 Test with `--n-gpu-layers 0` and `--threads` to isolate performance bottlenecks
+* ⚙️ Ensure KV cache reuse is handled properly (especially with async calls)
+* 🛠️ Consider upgrading to latest `llama-cpp-python` with patched `ggml` backend
+* 🧹 Clear context between conversations to avoid graph assertion errors
+
+---
+
 
 📞 Contact
 <<<<<<< HEAD
