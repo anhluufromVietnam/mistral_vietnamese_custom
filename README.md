@@ -252,4 +252,8 @@ If you use this model in your work, please cite:
 
 
 📞 Contact
+<<<<<<< HEAD
 For questions or contributions, please open an issue or PR.
+=======
+For questions or contributions, please open an issue or PR.
+>>>>>>> c83079374d6febec17fe1c6996d24199558036ad
